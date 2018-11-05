@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/xingyuanzhu/Desktop/CSCC85/labs/Distro/ParticleFilters.c
+ParticleFilters.h
+/home/xingyuanzhu/Desktop/CSCC85/labs/Distro/ParticleFilters.h
+
+/home/xingyuanzhu/Desktop/CSCC85/labs/Distro/ParticleFilters.h
+stdio.h
+-
+stdlib.h
+-
+math.h
+-
+GL/gl.h
+-
+GL/glu.h
+-
+GL/glut.h
+-
+ParticleUtils.h
+/home/xingyuanzhu/Desktop/CSCC85/labs/Distro/ParticleUtils.h
+
+/home/xingyuanzhu/Desktop/CSCC85/labs/Distro/ParticleUtils.h
+stdio.h
+-
+stdlib.h
+-
+math.h
+-
+time.h
+-
+string.h
+-
+

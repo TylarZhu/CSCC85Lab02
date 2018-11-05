@@ -1,0 +1,3 @@
+/home/xingyuanzhu/Desktop/CSCC85/labs/Distro/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/xingyuanzhu/Desktop/CSCC85/labs/Distro/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/xingyuanzhu/Desktop/CSCC85/labs/Distro/cmake-build-debug/CMakeFiles/Distro.dir
