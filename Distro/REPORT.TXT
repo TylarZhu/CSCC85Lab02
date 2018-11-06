@@ -5,8 +5,8 @@ ______________________________________________________________________
 
 Team name:
 
-Name 1 (last, first):
-Student number 1:
+Name 1 (last, first):Xingyuan Zhu
+Student number 1:1003210367
 
 Name 2 (last, first):
 Student number 2:
@@ -23,23 +23,24 @@ you think the task could be completed
 
 a) Implemented randomized particle initialization
 
-
+	completed, set n particles randomliy away from the wall and give each partilces equalized probability.
 
 b) Implemented particle likelihood computation using Gaussian 
    noise model.
 
+	completed, use Gaussian noise model to compute every sonar slices of a particle to get the probabilities.
 
 c) Implemented Step 1 in the starter code
 
-
+	completed, move particles in the same direction from the robot, if the particles hit the wall, then turn 180 degree.
 
 d) Implemented Step 3 in the starter code
 
-
+	completed, compute particles' probabilities according to Gussian noise model.
 
 e) Implemented Step 4 in the starter code
   
-
+	completed, randomly filter high probabilities and ignore the low probabilities particles. 
 _______________________________________________________________________
 
 Questions:
@@ -47,15 +48,24 @@ Questions:
 1) For each of the maps provided, give your estimate of the minimum
    number of particles required for reliably successful localization
    (i.e. the robot succeeds almost always).
+	map_A: at least 300 particles.
+	map_B: at least 1000 particles.
+	map_C: at least 800 particles.
+	map_D: at least 600 particles.
+	maze: at least 2000 particles.
 
 2) What properties of the map make the localization task difficult?
 
+	similar position.
 
 3) What is the effect of a non-Gaussian noise model in the performance
    of the particle filter?
-
+	
+	if we do not use Gaussian noise model, then it will affect the estimate of probability of particles.
 
 4) What would you do to improve the sensor model?
+
+	change the sigma of the Gaussian noise model to match the sensor model. 
 
 
 5) The motion model is noisy. Each time the robot moves, the direction

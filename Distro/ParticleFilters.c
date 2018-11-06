@@ -242,14 +242,16 @@ void computeLikelihood(struct particle *p, struct particle *rob, double noise_si
     ****************************************************************/
 
     double error_i;
-    double error_prob = 0;//for log(error=1)=0;
+    double error_prob = 0;
+    // compute particles' 16 sonar slices, add all the error probability together.
     for (int i = 0; i < 16; i++) {
         error_i = (p->measureD[i]) - (rob->measureD[i]);
-        error_prob = error_prob + log(GaussEval(error_i, noise_sigma));//error_prob=error_prob*GaussEval(...)
+        error_prob = error_prob + log(GaussEval(error_i, noise_sigma));
     }
-
+    // multiply the past probability
     p->prob = log(p->prob) + error_prob;
-    p->prob = exp(p->prob);//transform to prob
+    // change log in to number
+    p->prob = exp(p->prob);
 
 }
 
@@ -294,7 +296,6 @@ void ParticleFilterLoop(void) {
             //1 Move all particles a given distance forward
             //set every partical moving direct follow the robat moving dirction
             //p->theta = robot->theta+uniform_random()*20;
-            // ??????
             // if the particles hit the wall, then turn 180 degree
             if (hit(p, map, sx, sy)) {
                 p->theta = p->theta + theta_c + uniform_random() * 20.0;
@@ -337,14 +338,13 @@ void ParticleFilterLoop(void) {
         double sum_prob = 0;
 
         while (p != NULL) {
-            //calculation the probiity between the partical and robat sense
             computeLikelihood(p, robot, sigma_sample);
             //for nomalization
             sum_prob = sum_prob + p->prob;
             p = p->next;
         }
 
-        //nomaliztion 1
+        //nomalize
         p = list;
         while (p != NULL) {
             p->prob = p->prob / sum_prob;
@@ -393,7 +393,7 @@ void ParticleFilterLoop(void) {
             //calculation the uniform RV
             urandum = uniform_random();
             pt = list;
-            ptt = list_cumu;//cumulative prb.
+            ptt = list_cumu;//cdf
             //find partical
             while (pt != NULL) {
                 //find the well partical
@@ -401,12 +401,11 @@ void ParticleFilterLoop(void) {
                     pindex = pt;//select ok.
                     pt = NULL;
                 } else {
-                    //pindex = list; // no select.
                     pt = pt->next;
                     ptt = ptt->next;
                 }
             }
-            //select new partical from list to list_new;
+            //copy the well partical into p_new.
             p_new->x = pindex->x;
             p_new->y = pindex->y;
             p_new->theta = pindex->theta;
@@ -571,17 +570,15 @@ double uniform_random(void) {
     return (double) rand() / (double) RAND_MAX;
 }
 
-//calculate the cumulatvie prob.save to list_cumu
+//calculate the cumulative prob. Save to list_cumu
 void CalCumulative() {
     struct particle *p, *pt;
-    struct particle *list_t;
 
     p = list->next;
     list_cumu->prob = list->prob;
     pt = list_cumu->next;
     double temp_prob;
     temp_prob = list_cumu->prob;
-    int i = 1;
     while (p != NULL) {
         pt->prob = temp_prob + p->prob;
         temp_prob = pt->prob;
@@ -595,7 +592,6 @@ void CalCumulative() {
 double cal_avg(struct particle *pt)
 {
     struct particle *p;
-
     p=pt;
     double temp_prob = 0;
     int i = 1;
