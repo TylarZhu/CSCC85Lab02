@@ -73,15 +73,15 @@ Questions:
    robot wanders around instead of moving in a straight line.
 
    a) Is this something we can avoid in the real world?
-
-  
+	No, because the noise is the only thing that cannot be avoid.
+ 
    b) Is it a bug or a feature?
-
+	It is a bug, because it keep us way from the true direction.
    
    c) Would the particle filter work with noiseless motion?
       if yes, under what conditions...
       if no, why?
-
+	yes, under the conditions of all the probabilities are correct. 
 ________________________________________________________________
 
 Grading:
