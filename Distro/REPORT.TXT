@@ -8,8 +8,8 @@ Team name:
 Name 1 (last, first):Xingyuan Zhu
 Student number 1:1003210367
 
-Name 2 (last, first):
-Student number 2:
+Name 2 (last, first):Mengzhe Lu
+Student number 2:999568659
 
 Name 3 (last, first):
 Student number 3:
@@ -56,7 +56,7 @@ Questions:
 
 2) What properties of the map make the localization task difficult?
 
-	similar position.
+	similar position make the task difficult. However, difficult map will be eaiser to localize.
 
 3) What is the effect of a non-Gaussian noise model in the performance
    of the particle filter?
@@ -74,9 +74,10 @@ Questions:
 
    a) Is this something we can avoid in the real world?
 	No, because the noise is the only thing that cannot be avoid.
+	but we can do some some control to let the motion nearly to our excepted.
  
    b) Is it a bug or a feature?
-	It is a bug, because it keep us way from the true direction.
+	It is a feature, because of the noise. And we can do some algorithm to ignore it or make it small.
    
    c) Would the particle filter work with noiseless motion?
       if yes, under what conditions...
